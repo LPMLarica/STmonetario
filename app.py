@@ -65,4 +65,10 @@ previsao= modelo.predict(futuro)
 
 
 st.subheader('Previsão')
-st.write(previsao[['ds', 'yhat', 'yhat_low', 'yhat_upper']]).tail(n_dias)
+st.write(previsao[['ds', 'yhat', 'yhat_low', 'yhat_upper']].tail(n_dias))
+
+grafico1 = plot_plotly(modelo, previsao)
+st.plotly_chart(grafico1)
+
+grafico2 = plot_components_plotly(modelo, previsao)
+st.plotly_chart(grafico2)
